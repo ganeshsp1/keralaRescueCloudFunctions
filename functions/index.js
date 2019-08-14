@@ -7,8 +7,8 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 
-exports.scheduledAPICheckFunction = functions.pubsub.schedule('every 1 hours').onRun((context) => {
-  console.log('This will be run every 3 minutes!');
+exports.scheduledAPICheckFunction = functions.pubsub.schedule('every 10 minutes').onRun((context) => {
+  console.log('This will be run every 10 minutes!');
   loadNewAnnouncements();
   return null;
 });
@@ -87,6 +87,7 @@ function sendNotification(announcement) {
   })
     .catch((error) => {
       console.log('Error sending message:', error);
+	  console.log(message);
     });
 }
 
