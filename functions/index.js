@@ -58,12 +58,12 @@ exports.getAllAnnouncements = functions.https.onRequest(async (req, res) => {
 function sendNotification(announcement) {
   var topic = 'announcements';
   var title = 'Low Priority';
-  if (announcement['Priority'] === 'H') {
+  if (announcement['priority'] === 'H') {
     if (announcement['is_pinned'] === true) {
       title = 'VERY IMPORTANT';
     }
   }
-  if (announcement['Priority'] === 'M') {
+  if (announcement['priority'] === 'M') {
     title = 'MEDIUM PRIORITY';
   }
   let msg = announcement['description'];
